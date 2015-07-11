@@ -10,7 +10,6 @@
 
 .fixedheight {
   height: 100vh;
-  margin: auto;
 }
 
 .centering {
@@ -30,10 +29,23 @@
 td {
   text-align: center;
   max-height: 720px;
-  margin: auto;
+}
+
+.grid {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.bc {
+  border-collapse: collapse;
 }
 
 .thirds {
   width: 33%;
   height: 33%;
+}
+
+.ofh {
+  overflow: hidden;
 }

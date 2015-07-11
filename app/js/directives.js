@@ -8,14 +8,21 @@ pApp.directive('imageonload', function() {
 //    restrict: 'A',
     link: function(scope, element, attrs) {
       element.bind('load', function() {
-        scope.width = element[0].width;
-        scope.height = element[0].height;
-        scope.curWidth = element[0].width;
-        scope.curHeight = element[0].height;
-        var b = element[0].width > element[0].height ? element[0].width : element[0].height;
-        var s = element[0].width < element[0].height ? element[0].width : element[0].height;
+        var w = element[0].width;
+        var h = element[0].height;
+        scope.width = w;
+        scope.height = h;
+        scope.curWidth = w;
+        scope.curHeight = h;
+        var b = w > h ? w : h;
+        var s = w < h ? w : h;
         scope.maxMult = 1280 / b;
         scope.minMult = 32 / s; 
+        scope.picStyle = { 
+          width: w + 'px', 
+          height: h + 'px'
+        };
+        scope.reGrid();
         //TODO if (maxMult < 1) { //resize img };
         scope.$apply();
       });

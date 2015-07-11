@@ -17,13 +17,13 @@
         <table class="ww">
           <tr>
             <td>
-              <img src="img/icon.png" />
+              <img ng-src="{{ iconImg }}" />
             </td>
             <td>
-              <input type="range" ng-model="elementsize" min="4" max="100" />
+              <input type="range" ng-model="elementsize" ng-change="elChange()" min="16" max="64" />
             </td>
             <td>
-              <img src="img/icon.png" />
+              <img ng-src="{{ iconImg }}" />
             </td>
           </tr>
         </table>
@@ -31,18 +31,20 @@
         <table class="ww"> 
           <tr>
             <td>
-              <img src="img/icon.png" />
+              <img ng-src="{{ iconImg }}" />
             </td>
             <td>
               <input type="range" ng-model="scale" ng-change="scaleChange()" min="1" max="100" id="scaleBar" />
             </td>
             <td>
-              <img src="img/icon.png" />
+              <img ng-src="{{ iconImg }}" />
             </td>
           </tr>
         </table>
         <p> Size: {{ curWidth }}x{{ curHeight }} px  </p>
         <pre>picStyle={{picStyle}}</pre>
+        <pre>mat={{mat}}</pre>
+        <pre>sideXImgs x sideYImgs: {{ sideXImgs }}x{{ sideYImgs }}</pre>
         <p> w: {{ width }}, h: {{ height }}, maxMult: {{ maxMult }}, cw: {{ curWidth }}, ch: {{ curHeight }} </p>
         <ul>
           <li ng-repeat="phone in phones">
@@ -56,13 +58,18 @@
           <div class="centering">
             <img ng-src="{{ sampleImg }}" imageonload ng-style="picStyle" />
           </div>
+          <div class="centering wire ofh" ng-style="picStyle">
+            <table class="bc">
+              <tr ng-repeat="y in matY track by $index" class="ww grid">
+                <td ng-repeat="x in matX track by $index" ng-style="miniStyle" class="grid" >
+                  <img ng-src="{{ iconImg }}" ng-style="miniStyle" />
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
       </td>
       <td class="wire thirds">
-        <div class="fixedheight">
-          <div class="centering wire">
-          </div>
-        </div>
       </td>
     </tr>
   </table>

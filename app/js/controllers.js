@@ -11,7 +11,11 @@ pApp.controller('PCtrl', function ($scope) {
     {'name': 'MOTOROLA XOOM™',
      'snippet': 'The Next, Next Generapon tablet.'}
   ];
-  $scope.sampleImg = "img/sample.png";
+  $scope.sampleImg = "img/logo.png";
+  $scope.iconImg = "img/icon.png";
+  $scope.elementsize = 32;
+  $scope.scale = 50;
+
   $scope.scaleChange = function() {
     if (this.maxMult > 1) {
       if (this.scale >= 50) {
@@ -23,11 +27,33 @@ pApp.controller('PCtrl', function ($scope) {
       } 
       this.curWidth = Math.floor(this.width * mult);
       this.curHeight = Math.floor(this.height * mult);
+      this.reGrid();
       this.picStyle = { 
         width: this.curWidth + 'px', 
         height: this.curHeight + 'px'
       };
     } //TODO else {...}
+  };
+
+  $scope.elChange = function() {
+    this.reGrid();
+    this.miniStyle = {
+      width: this.elementsize + 'px',
+      height: this.elementsize + 'px'
+    };
+  };
+  
+  $scope.reGrid = function() {
+    this.sideXImgs = Math.floor(this.curWidth / this.elementsize) + 1;
+    this.sideYImgs = Math.floor(this.curHeight / this.elementsize) + 1;
+    this.matX = [];
+    this.matY = [];
+    for (var x = 0; x < this.sideXImgs; x++) {
+      this.matX[x] = 0;
+    }
+    for (var y = 0; y < this.sideYImgs; y++) {
+      this.matY[y] = 0;
+    }
   };
 });
 
