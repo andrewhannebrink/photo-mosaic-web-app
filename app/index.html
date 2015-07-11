@@ -16,13 +16,13 @@
       <td class="wire thirds">
         <table class="ww">
           <tr>
-            <td>
+            <td class="slide">
               <img ng-src="{{ iconImg }}" />
             </td>
-            <td>
+            <td class="slide">
               <input type="range" ng-model="elementsize" ng-change="elChange()" min="16" max="64" />
             </td>
-            <td>
+            <td class="slide">
               <img ng-src="{{ iconImg }}" />
             </td>
           </tr>
@@ -30,13 +30,13 @@
         <p> Element size: {{ elementsize }} pixels </p>
         <table class="ww"> 
           <tr>
-            <td>
+            <td class="slide">
               <img ng-src="{{ iconImg }}" />
             </td>
-            <td>
+            <td class="slide">
               <input type="range" ng-model="scale" ng-change="scaleChange()" min="1" max="100" id="scaleBar" />
             </td>
-            <td>
+            <td class="slide">
               <img ng-src="{{ iconImg }}" />
             </td>
           </tr>
@@ -46,20 +46,12 @@
         <pre>mat={{mat}}</pre>
         <pre>sideXImgs x sideYImgs: {{ sideXImgs }}x{{ sideYImgs }}</pre>
         <p> w: {{ width }}, h: {{ height }}, maxMult: {{ maxMult }}, cw: {{ curWidth }}, ch: {{ curHeight }} </p>
-        <ul>
-          <li ng-repeat="phone in phones">
-            <span>{{phone.name}}</span>
-            <p>{{phone.snippet}}</p>
-          </li>
-        </ul>
       </td>
       <td class="wire thirds">
         <div class="fixedheight">
-          <div class="centering">
-            <img ng-src="{{ sampleImg }}" imageonload ng-style="picStyle" />
-          </div>
-          <div class="centering wire ofh" ng-style="picStyle">
-            <table class="bc">
+          <img class="ofh" ng-src="{{ sampleImg }}" imageonload ng-style="picStyle" />
+          <div class="ofh" ng-style="picStyle">
+            <table class="bc" > 
               <tr ng-repeat="y in matY track by $index" class="ww grid">
                 <td ng-repeat="x in matX track by $index" ng-style="miniStyle" class="grid" >
                   <img ng-src="{{ iconImg }}" ng-style="miniStyle" />

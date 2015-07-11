@@ -22,6 +22,11 @@ pApp.directive('imageonload', function() {
           width: w + 'px', 
           height: h + 'px'
         };
+        scope.oPicStyle = { 
+          width: this.curWidth + 'px', 
+          height: this.curHeight + 'px',
+          'top': -1 * this.curHeight + 'px'
+        };
         scope.reGrid();
         //TODO if (maxMult < 1) { //resize img };
         scope.$apply();
