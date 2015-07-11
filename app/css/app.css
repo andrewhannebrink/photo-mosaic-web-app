@@ -1,0 +1,39 @@
+/* app css stylesheet */
+
+.ww {
+  width: 100%;
+}
+
+.wh {
+  height: 100vh;
+}
+
+.fixedheight {
+  height: 100vh;
+  margin: auto;
+}
+
+.centering {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.wire {
+  border-style: dotted;
+}
+
+#bigtable {
+  table-layout: fixed;
+}
+
+td {
+  text-align: center;
+  max-height: 720px;
+  margin: auto;
+}
+
+.thirds {
+  width: 33%;
+  height: 33%;
+}

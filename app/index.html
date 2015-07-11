@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" ng-app="pApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/directives.js"></script>
+</head>
+
+<body ng-controller="PCtrl">
+  <table class="ww wh" id="bigtable">
+    <tr class="wh">
+      <td class="wire thirds">
+        <table class="ww">
+          <tr>
+            <td>
+              <img src="img/icon.png" />
+            </td>
+            <td>
+              <input type="range" ng-model="elementsize" min="4" max="100" />
+            </td>
+            <td>
+              <img src="img/icon.png" />
+            </td>
+          </tr>
+        </table>
+        <p> Element size: {{ elementsize }} pixels </p>
+        <table class="ww"> 
+          <tr>
+            <td>
+              <img src="img/icon.png" />
+            </td>
+            <td>
+              <input type="range" ng-model="scale" ng-change="scaleChange()" min="1" max="100" id="scaleBar" />
+            </td>
+            <td>
+              <img src="img/icon.png" />
+            </td>
+          </tr>
+        </table>
+        <p> Size: {{ curWidth }}x{{ curHeight }} px  </p>
+        <pre>picStyle={{picStyle}}</pre>
+        <p> w: {{ width }}, h: {{ height }}, maxMult: {{ maxMult }}, cw: {{ curWidth }}, ch: {{ curHeight }} </p>
+        <ul>
+          <li ng-repeat="phone in phones">
+            <span>{{phone.name}}</span>
+            <p>{{phone.snippet}}</p>
+          </li>
+        </ul>
+      </td>
+      <td class="wire thirds">
+        <div class="fixedheight">
+          <div class="centering">
+            <img ng-src="{{ sampleImg }}" imageonload ng-style="picStyle" />
+          </div>
+        </div>
+      </td>
+      <td class="wire thirds">
+        <div class="fixedheight">
+          <div class="centering wire">
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
