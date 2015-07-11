@@ -2,7 +2,7 @@
 
 var pApp = angular.module('pApp', []);
 
-pApp.controller('PCtrl', function ($scope) {
+pApp.controller('PCtrl', ['$scope', '$http', function ($scope, $http) {
   $scope.phones = [
     {'name': 'Nexus S',
      'snippet': 'Fast just got faster with Nexus S.'},
@@ -15,6 +15,20 @@ pApp.controller('PCtrl', function ($scope) {
   $scope.iconImg = "img/icon.png";
   $scope.elementsize = 32;
   $scope.scale = 50;
+
+  $scope.uploadFile = function(files) {
+      var fd = new FormData();
+      //Take the first selected file
+      fd.append("file", files[0]);
+      console.dir(files[0]);
+      //TODO
+  
+      /*$http.post(uploadUrl, fd, {
+          withCredentials: true,
+          headers: {'Content-Type': undefined },
+          transformRequest: angular.identity
+      }).success(function(){console.log('success');}).error(function(){console.log('error');});*/
+  };
 
   $scope.scaleChange = function() {
     if (this.maxMult > 1) {
@@ -60,5 +74,5 @@ pApp.controller('PCtrl', function ($scope) {
       this.matY[y] = 0;
     }
   };
-});
+}]);
 
