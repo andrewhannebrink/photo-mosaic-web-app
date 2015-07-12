@@ -81,8 +81,19 @@ pApp.controller('PCtrl', ['$scope', '$http', function ($scope, $http) {
   };
 
   $scope.elChange = function() {
-    this.reGrid();
+    if (this.elementsize > 32) {
+      this.reGrid();
+      var buf = 0;
+    } else {
+      var buf = 32 - this.elementsize;
+    }
     this.miniStyle = {
+      width: this.elementsize + 'px',
+      height: this.elementsize + 'px',
+      'margin-top': buf + 'px',
+      'margin-left': buf + 'px',
+    };
+    this.sizeSampleStyle = {
       width: this.elementsize + 'px',
       height: this.elementsize + 'px'
     };

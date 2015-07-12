@@ -78,12 +78,11 @@
           </table>
           <br>
           <ul>
+            <li><img ng-src="{{ iconImg }}" ng-style="sizeSampleStyle"/> {{ elementsize }}</li>
             <li>original: {{ width }}, {{ height }}</li>
             <li>current: {{ curWidth }}, {{ curHeight }}</li>
-            <li>icon: {{ elementsize }}px</li>
             <li>x_imgs: {{ sideXImgs }}</li>
             <li>y_imgs: {{ sideYImgs }}</li>
-            <li><img ng-src="{{ iconImg }}" class="icon" />stuff here</li>
             <li></li>
           </ul>
         </div>
@@ -92,8 +91,8 @@
           <img class="ofh" flow-img="$flow.files[0]" ng-style="picStyle"/> 
           <div class="ofh" ng-style="picStyle">
             <table class="bc" > 
-              <tr ng-repeat="y in matY track by $index" class="ww grid">
-                <td ng-repeat="x in matX track by $index" ng-style="miniStyle" class="grid" >
+              <tr ng-repeat="y in matY track by $index" class="ww">
+                <td ng-repeat="x in matX track by $index" ng-style="miniStyle">
                   <img ng-src="{{ iconImg }}" ng-style="miniStyle" />
                 </td>
               </tr>
