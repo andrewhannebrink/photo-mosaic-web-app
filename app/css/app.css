@@ -1,5 +1,19 @@
 /* app css stylesheet */
 
+@font-face {
+    font-family:"pocket";
+    src: url("../img/pocket.ttf") /* TTF file for CSS3 browsers */
+}
+
+.pocket {
+  font-family:"pocket";
+  color: #999999;
+  font-size: 56px;
+}
+.pocket:hover {
+  color: #999999;
+}
+
 .ww {
   width: 100%;
 }
@@ -22,16 +36,20 @@
   border-style: dotted;
 }
 
-#bigtable {
-  table-layout: fixed;
-}
-
 td {
   max-height: 720px;
 }
 
 .slide {
   text-align: center;
+}
+
+.text {
+  font-family: monospace;
+  color:#999999;
+}
+.text:hover {
+  color:#999999;
 }
 
 .grid {
@@ -44,18 +62,36 @@ td {
   border-collapse: collapse;
 }
 
-.thirds {
-  width: 33%;
-  height: 33%;
-}
-
 .ofh {
   overflow: hidden;
   position: absolute;
-  top: 100px;
+  top: 0px;
 }
 
-#gridTable {
-  position: relative;
-  top: -200px;
+.static {
+  position:fixed;
+  z-index:100;
+}
+
+.gray {
+  background-color:#eeeeee;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #cccccc;
+  top: 120px;
+  left: 32px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  font-family: monospace;
+  color: #999999;
+}
+
+#ctrlDiv {
+  padding:16px;
 }

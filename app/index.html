@@ -8,49 +8,88 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/directives.js"></script>
+  <!-- concatenated flow.js + ng-flow libraries -->
+  <script src="../ng-flow/dist/ng-flow-standalone.min.js"></script>
+  <!-- or include the files separately -->
+  <script src="../bower_components/flow.js/dist/flow.min.js"></script>
+  <script src="../ng-flow/dist/ng-flow.min.js"></script>
 </head>
 
 <body ng-controller="PCtrl">
-  <table class="ww wh" id="bigtable">
-    <tr class="wh">
-      <td class="wire thirds">
-        <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" style="ww" />
-        <table class="ww">
-          <tr>
-            <td class="slide">
-              <img ng-src="{{ iconImg }}" />
-            </td>
-            <td class="slide">
-              <input type="range" ng-model="elementsize" ng-change="elChange()" min="16" max="64" />
-            </td>
-            <td class="slide">
-              <img ng-src="{{ iconImg }}" />
-            </td>
-          </tr>
-        </table>
-        <p> Element size: {{ elementsize }} pixels </p>
-        <table class="ww"> 
-          <tr>
-            <td class="slide">
-              <img ng-src="{{ iconImg }}" />
-            </td>
-            <td class="slide">
-              <input type="range" ng-model="scale" ng-change="scaleChange()" min="1" max="100" id="scaleBar" />
-            </td>
-            <td class="slide">
-              <img ng-src="{{ iconImg }}" />
-            </td>
-          </tr>
-        </table>
-        <p> Size: {{ curWidth }}x{{ curHeight }} px  </p>
-        <pre>picStyle={{picStyle}}</pre>
-        <pre>mat={{mat}}</pre>
-        <pre>sideXImgs x sideYImgs: {{ sideXImgs }}x{{ sideYImgs }}</pre>
-        <p> w: {{ width }}, h: {{ height }}, maxMult: {{ maxMult }}, cw: {{ curWidth }}, ch: {{ curHeight }} </p>
-      </td>
-      <td class="wire thirds">
+<div flow-init
+    flow-files-submitted="$flow.upload()"
+    flow-file-success="$file.msg = $message">
+        <div class="static gray" id="ctrlDiv">
+
+          <table>
+            <tr ng-repeat="file in $flow.files">
+              <td>{{$index+1}}</td>
+              <td>{{file.name}}</td>
+              <td>{{file.msg}}</td>
+            </tr>
+          </table>
+          <table class="ctrlTable">
+            <tr>
+              <td class="slide text"> 
+                <span class="btn gray text" flow-btn><img ng-src="{{ iconImg }}" class="icon" />  upload</span>
+              </td>
+            </tr>
+          </table>
+          <br>
+          <table class="ww" class="ctrlTable">
+            <tr>
+              <td class="slide">
+                <span class="btn gray"><img ng-src="{{ iconImg }}" class="icon" /></span>
+              </td>
+              <td class="slide">
+                <span class="btn gray"><img ng-src="{{ iconImg }}" class="icon" /></span>
+              </td>
+              <td class="slide">
+                <span class="btn gray"><img ng-src="{{ iconImg }}" class="icon" /></span>
+              <td class="slide">
+                <span class="btn gray"><img ng-src="{{ iconImg }}" class="icon" /></span>
+              </td>
+            </tr>
+          </table>
+          <br>
+          <table class="ww" class="ctrlTable">
+            <tr>
+              <td class="slide">
+                <img ng-src="{{ iconImg }}" class="icon" />
+              </td>
+              <td class="slide">
+                <input type="range" ng-model="elementsize" ng-change="elChange()" min="16" max="64" />
+              </td>
+              <td class="slide">
+                <img ng-src="{{ iconImg }}" class="icon" />
+              </td>
+            </tr>
+            <tr>
+              <td class="slide">
+                <img ng-src="{{ iconImg }}" class="icon" />
+              </td>
+              <td class="slide">
+                <input type="range" ng-model="scale" ng-change="scaleChange()" min="1" max="100" id="scaleBar" />
+              </td>
+              <td class="slide">
+                <img ng-src="{{ iconImg }}" class="icon" />
+              </td>
+            </tr>
+          </table>
+          <br>
+          <ul>
+            <li>original: {{ width }}, {{ height }}</li>
+            <li>current: {{ curWidth }}, {{ curHeight }}</li>
+            <li>icon: {{ elementsize }}px</li>
+            <li>x_imgs: {{ sideXImgs }}</li>
+            <li>y_imgs: {{ sideYImgs }}</li>
+            <li><img ng-src="{{ iconImg }}" class="icon" />stuff here</li>
+            <li></li>
+          </ul>
+        </div>
         <div class="fixedheight">
           <img class="ofh" ng-src="{{ sampleImg }}" imageonload ng-style="picStyle" />
+          <img class="ofh" flow-img="$flow.files[0]" ng-style="picStyle"/> 
           <div class="ofh" ng-style="picStyle">
             <table class="bc" > 
               <tr ng-repeat="y in matY track by $index" class="ww grid">
@@ -61,10 +100,6 @@
             </table>
           </div>
         </div>
-      </td>
-      <td class="wire thirds">
-      </td>
-    </tr>
-  </table>
+</div>
 </body>
 </html>
