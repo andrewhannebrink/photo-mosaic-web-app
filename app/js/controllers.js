@@ -181,12 +181,12 @@ pApp.controller('PCtrl', ['$scope', '$http', function ($scope, $http) {
     this.matX = [];
     this.matY = [];
     for (var x = 0; x < this.sideXImgs; x++) {
-      this.matX[x] = Math.floor(Math.random()*10);
-      //this.matX[x] = x%10;
+      //this.matX[x] = Math.floor(Math.random()*10);
+      this.matX[x] = x%10;
     }
     for (var y = 0; y < this.sideYImgs; y++) {
-      this.matY[y] = Math.floor(Math.random()*10);
-      //this.matY[y] = y%10;
+      //this.matY[y] = Math.floor(Math.random()*10);
+      this.matY[y] = y%10;
     }
   };
 }]);
