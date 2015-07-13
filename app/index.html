@@ -16,12 +16,14 @@
   <script src="../ng-flow/dist/ng-flow.min.js"></script>
 </head>
 
-<body ng-controller="PCtrl">
+<body ng-controller="PCtrl" ng-show="browserChecked">
 <div flow-init
     flow-files-submitted="$flow.upload()"
     flow-file-success="$file.msg = $message">
-        <div class="static gray" ng-style="browserStyle">
+        <div class="static gray" ng-style="browserStyle"> 
 
+
+          <p class="pocket gray calc"> tiny_icon </p>
           <ul ng-hide="mobile">
             <li>icon: {{ elementsize }}</li>
             <li>original: {{ width }}, {{ height }}</li>
@@ -108,7 +110,7 @@
             <table class="bc" > 
               <tr ng-repeat="y in matY track by $index" class="ww">
                 <td ng-repeat="x in matX track by $index">
-                  <img ng-src="{{ curIcon[ (x+y)%5 ] }}" ng-style="miniStyle" />
+                  <img ng-src="{{ curIcon[ (x+2)*(y+6)%5 ] }}" ng-style="miniStyle" />
                 </td>
               </tr>
             </table>

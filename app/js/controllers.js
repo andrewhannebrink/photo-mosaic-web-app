@@ -29,6 +29,8 @@ pApp.controller('PCtrl', ['$scope', '$http', function ($scope, $http) {
   $scope.sampleImg = "img/sample.png";
   $scope.elementsize = 40;
   $scope.scale = 50;
+  $scope.browserChecked = false;
+  $scope.mobileWrap = {};
   $scope.iconSets= {
     "win": {
       "elb": "img/win/shell32_16-0.png",
@@ -68,7 +70,6 @@ pApp.controller('PCtrl', ['$scope', '$http', function ($scope, $http) {
   };
 
 
-  $scope.mobileWrap = {};
 
   $scope.mobilecheck = function() {
   var check = false;
@@ -112,6 +113,7 @@ pApp.controller('PCtrl', ['$scope', '$http', function ($scope, $http) {
         left: '32px'
       };
     }
+    $scope.browserChecked = true;
   };
 
 
