@@ -22,13 +22,6 @@
     flow-file-success="$file.msg = $message">
         <div class="static gray" ng-style="browserStyle">
 
-          <table>
-            <tr ng-repeat="file in $flow.files">
-              <td>{{$index+1}}</td>
-              <td>{{file.name}}</td>
-              <td>{{file.msg}}</td>
-            </tr>
-          </table>
           <ul ng-hide="mobile">
             <li>icon: {{ elementsize }}</li>
             <li>original: {{ width }}, {{ height }}</li>
@@ -115,7 +108,7 @@
             <table class="bc" > 
               <tr ng-repeat="y in matY track by $index" class="ww">
                 <td ng-repeat="x in matX track by $index">
-                  <img ng-src="{{ curIcon[ (y+x)%5 ] }}" ng-style="miniStyle" />
+                  <img ng-src="{{ curIcon[ (x+y)%5 ] }}" ng-style="miniStyle" />
                 </td>
               </tr>
             </table>
