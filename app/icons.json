@@ -1,0 +1,10 @@
+{
+  "win": {
+    "elb": "./img/win/shell32_16-0.png", 
+    "els": "./img/win/nwnp32_1_WRKGRP_ICON-0",
+    "icon": "./img/win/mprserv_121.png",
+    "ps":"./img/win/inetcpl_1313-3.png",
+    "pb":"./img/wininetcpl_1313-5.png",
+    "upload":"./img/win/syncui_135-0.png"
+  }
+}

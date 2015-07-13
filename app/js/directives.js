@@ -15,15 +15,15 @@ pApp.directive('imageonload', function() {
         scope.height = h;
         var b = w > h ? w : h;
         var s = w < h ? w : h;
-        scope.maxMult = 1080 / b;
+        scope.maxMult = 900 / b;
+        if (scope.maxMult < 1) {
+          scope.extMaxMult = 1000 / b;
+        }
         scope.minMult = 32 / s; 
         scope.curWidth = scope.maxMult > 1 ? w : w*scope.maxMult;
         scope.curHeight = scope.maxMult > 1 ? h : h*scope.maxMult;
-        scope.picStyle = { 
-          width: scope.curWidth + 'px', 
-          height: scope.curHeight + 'px'
-        };
         scope.reGrid();
+        scope.browserfy(scope.curWidth, scope.curHeight);
         //TODO if (maxMult < 1) { //resize img };
         scope.$apply();
       });

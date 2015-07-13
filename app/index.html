@@ -2,6 +2,7 @@
 <html lang="en" ng-app="pApp">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
   <title>My HTML File</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
@@ -19,7 +20,7 @@
 <div flow-init
     flow-files-submitted="$flow.upload()"
     flow-file-success="$file.msg = $message">
-        <div class="static gray" id="ctrlDiv">
+        <div class="static gray" ng-style="browserStyle">
 
           <table>
             <tr ng-repeat="file in $flow.files">
@@ -28,72 +29,93 @@
               <td>{{file.msg}}</td>
             </tr>
           </table>
-          <table class="ctrlTable">
-            <tr>
-              <td class="slide text"> 
-                <span class="btn gray text" flow-btn><img ng-src="{{ iconImg }}" class="icon" />  upload</span>
-              </td>
-            </tr>
-          </table>
-          <br>
-          <table class="ww" class="ctrlTable">
-            <tr>
-              <td class="slide">
-                <span class="btn gray"><img ng-src="{{ iconImg }}" class="icon" /></span>
-              </td>
-              <td class="slide">
-                <span class="btn gray"><img ng-src="{{ iconImg }}" class="icon" /></span>
-              </td>
-              <td class="slide">
-                <span class="btn gray"><img ng-src="{{ iconImg }}" class="icon" /></span>
-              <td class="slide">
-                <span class="btn gray"><img ng-src="{{ iconImg }}" class="icon" /></span>
-              </td>
-            </tr>
-          </table>
-          <br>
-          <table class="ww" class="ctrlTable">
-            <tr>
-              <td class="slide">
-                <img ng-src="{{ iconImg }}" class="icon" />
-              </td>
-              <td class="slide">
-                <input type="range" ng-model="elementsize" ng-change="elChange()" min="16" max="64" />
-              </td>
-              <td class="slide">
-                <img ng-src="{{ iconImg }}" class="icon" />
-              </td>
-            </tr>
-            <tr>
-              <td class="slide">
-                <img ng-src="{{ iconImg }}" class="icon" />
-              </td>
-              <td class="slide">
-                <input type="range" ng-model="scale" ng-change="scaleChange()" min="1" max="100" id="scaleBar" />
-              </td>
-              <td class="slide">
-                <img ng-src="{{ iconImg }}" class="icon" />
-              </td>
-            </tr>
-          </table>
-          <br>
-          <ul>
-            <li><img ng-src="{{ iconImg }}" ng-style="sizeSampleStyle"/> {{ elementsize }}</li>
+          <ul ng-hide="mobile">
+            <li>icon: {{ elementsize }}</li>
             <li>original: {{ width }}, {{ height }}</li>
             <li>current: {{ curWidth }}, {{ curHeight }}</li>
             <li>x_imgs: {{ sideXImgs }}</li>
             <li>y_imgs: {{ sideYImgs }}</li>
             <li></li>
           </ul>
+          <br>
+          <table class="ctrlTable ww">
+            <tr>
+              <td class="slide"> 
+                <span class="btn gray" flow-btn><img ng-src="{{ iconSets.win.upload }}" class="icon" /></span>
+              </td>
+              <td class="slide"> 
+                <span class="btn gray"><img ng-src="{{ iconSets.win.iconify }}" class="icon" /></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="slide text"> 
+                upload
+              </td>
+              <td class="slide text">
+                iconify 
+              </td>
+            <tr>
+              <td>
+                <br>
+              </td>
+            </tr>
+            </tr>
+            <tr>
+              <td class="slide">
+                <span class="btn gray"><img ng-src="{{ iconSets.win.icon[0] }}" class="icon" ng-click="iconChange('win')"/></span>
+              </td>
+              <td class="slide">
+                <span class="btn gray"><img ng-src="{{ iconSets.emoji.icon[0] }}" class="icon" ng-click="iconChange('emoji')" /></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="slide text">
+                windows_98
+              </td>
+              <td class="slide text">
+                emoji
+              </td>
+            </tr>
+          </table>
+          <br>
+          <br>
+          <table class="ww" class="ctrlTable">
+            <tr>
+              <td class="slide icon">
+                <img ng-src="{{ iconSets.win.els }}" class="icon" />
+              </td>
+              <td class="slide">
+                <input type="range" ng-model="elementsize" ng-change="elChange()" min="16" max="64" />
+              </td>
+              <td class="slide icon">
+                <img ng-src="{{ iconSets.win.elb }}" class="icon"/>
+              </td>
+            </tr>
+          </table>
+          <br>
+          <br>
+          <table class="ww" class="ctrlTable">
+            <tr>
+              <td class="slide icon">
+                <img ng-src="{{ iconSets.win.ps }}" />
+              </td>
+              <td class="slide">
+                <input type="range" ng-model="scale" ng-change="scaleChange()" min="1" max="100" id="scaleBar" />
+              </td>
+              <td class="slide icon">
+                <img ng-src="{{ iconSets.win.pb }}" class="icon" />
+              </td>
+            </tr>
+          </table>
         </div>
-        <div class="fixedheight">
+        <div ng-style="mobileWrap">
           <img class="ofh" ng-src="{{ sampleImg }}" imageonload ng-style="picStyle" />
           <img class="ofh" flow-img="$flow.files[0]" ng-style="picStyle"/> 
           <div class="ofh" ng-style="picStyle">
             <table class="bc" > 
               <tr ng-repeat="y in matY track by $index" class="ww">
-                <td ng-repeat="x in matX track by $index" ng-style="miniStyle">
-                  <img ng-src="{{ iconImg }}" ng-style="miniStyle" />
+                <td ng-repeat="x in matX track by $index">
+                  <img ng-src="{{ curIcon[ (y+x)%5 ] }}" ng-style="miniStyle" />
                 </td>
               </tr>
             </table>

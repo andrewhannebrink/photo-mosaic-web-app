@@ -22,9 +22,6 @@
   height: 100vh;
 }
 
-.fixedheight {
-  height: 100vh;
-}
 
 //.centering {
 //  position: relative;
@@ -79,8 +76,6 @@ td {
   border-width: 1px;
   border-radius: 5px;
   border-color: #cccccc;
-  top: 120px;
-  left: 32px;
 }
 
 ul {
@@ -92,6 +87,7 @@ li {
   color: #999999;
 }
 
-#ctrlDiv {
-  padding:16px;
+
+.icon {
+  width:32px;
 }
