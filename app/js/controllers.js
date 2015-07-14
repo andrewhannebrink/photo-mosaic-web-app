@@ -114,9 +114,9 @@ pApp.controller('PCtrl', ['$scope', '$http', function ($scope, $http) {
         '-moz-box-shadow': '5px 5px 6px 5px rgba(48,48,48,0.61)',
         'box-shadow': '5px 5px 6px 5px rgba(48,48,48,0.61)',
         padding:'16px',
-        'top': '200px',
+        'top': '160px',
         left: '32px',
-        'border-width': '7px',
+        'border-width': '4px',
         'border-radius': '23px'
       };
     }
@@ -201,7 +201,7 @@ pApp.controller('PCtrl', ['$scope', '$http', function ($scope, $http) {
 
   $scope.infoStyle = {
     'z-index': '150',
-    width: '200px',
+    width: '210px',
     height: '140px'
   };
 

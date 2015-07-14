@@ -24,20 +24,20 @@
         <ul ng-hide="mobile" id="small" class="text" ng-style="infoStyle">
           <li><img src="img/emoji/1f4d0.png" class="tinyImg" /></li>
           <li></li>
-          <li>icon: {{ elementsize }}</li>
-          <li>original: {{ width }}, {{ height }}</li>
-          <li>current: {{ curWidth }}, {{ curHeight }}</li>
-          <li>x_imgs: {{ sideXImgs }}</li>
-          <li>y_imgs: {{ sideYImgs }}</li>
+          <li>{{ elementsize }} = icon width</li>
+          <li>({{ width }}, {{ height }}) = original</li>
+          <li>({{ curWidth }}, {{ curHeight }}) = current</li>
+          <li>{{ sideXImgs }} = x imgs</li>
+          <li>{{ sideYImgs }} = y imgs</li>
         </ul>
         <div class="static gray" ng-style="browserStyle"> 
 
-
+          <span class="text" ng-hide="mobile"> <img src="img/emoji/1f4f7.png" class="tinyImg" /><i> Mosaic Selector</i></span>
+          <br>
+          <br>
           <div class="gray calc" ng-hide="mobile"> 
             <img src="img/plain_jane.png" class="calcText" />
           </div>
-          <span class="text" ng-hide="mobile"> <i><b>Mosaic Selector</b></i></span>
-          <br>
           <br>
           <table class="ctrlTable ww">
             <tr>
