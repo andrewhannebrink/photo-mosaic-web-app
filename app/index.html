@@ -20,18 +20,24 @@
 <div flow-init
     flow-files-submitted="$flow.upload()"
     flow-file-success="$file.msg = $message">
+        <br>
+        <ul ng-hide="mobile" id="small" class="text" ng-style="infoStyle">
+          <li><img src="img/emoji/1f4d0.png" class="tinyImg" /></li>
+          <li></li>
+          <li>icon: {{ elementsize }}</li>
+          <li>original: {{ width }}, {{ height }}</li>
+          <li>current: {{ curWidth }}, {{ curHeight }}</li>
+          <li>x_imgs: {{ sideXImgs }}</li>
+          <li>y_imgs: {{ sideYImgs }}</li>
+        </ul>
         <div class="static gray" ng-style="browserStyle"> 
 
 
-          <p class="pocket gray calc"> tiny_icon </p>
-          <ul ng-hide="mobile">
-            <li>icon: {{ elementsize }}</li>
-            <li>original: {{ width }}, {{ height }}</li>
-            <li>current: {{ curWidth }}, {{ curHeight }}</li>
-            <li>x_imgs: {{ sideXImgs }}</li>
-            <li>y_imgs: {{ sideYImgs }}</li>
-            <li></li>
-          </ul>
+          <div class="gray calc" ng-hide="mobile"> 
+            <img src="img/plain_jane.png" class="calcText" />
+          </div>
+          <span class="text" ng-hide="mobile"> <i><b>Mosaic Selector</b></i></span>
+          <br>
           <br>
           <table class="ctrlTable ww">
             <tr>
@@ -104,7 +110,6 @@
           </table>
         </div>
         <div ng-style="mobileWrap">
-          <img class="ofh" ng-src="{{ sampleImg }}" imageonload ng-style="picStyle" />
           <img class="ofh" flow-img="$flow.files[0]" ng-style="picStyle"/> 
           <div class="ofh" ng-style="picStyle">
             <table class="bc" > 
